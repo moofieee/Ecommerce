@@ -27,9 +27,14 @@ class BunnycartSpider(scrapy.Spider):
             ).get()
             rating = li.css("div.rating-result::attr(title)").get()
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            
+
             self.data.append(
-                {"Timestamp": current_time,"Name": product_name, "Price": product_price, "Ratings": rating}
+                {
+                    "Timestamp": current_time,
+                    "Name": product_name,
+                    "Price": product_price,
+                    "Ratings": rating,
+                }
             )
 
         # Pagination
